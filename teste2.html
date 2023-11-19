@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Incorporando Javascript em Páginas HTML</title>
+	<!-- Incorporando um arquivo .js externo -->
+	<script src="script.js"></script>
+</head>
+<body>
+	<div id="exibe_resultado"> O Resultado da Divisão é...  </div>
+</body>
+	<!-- Incorporando códigos Javascript diretamente na página -->
+	<script type="text/javascript">
+
+        // pedindo ao usuario dois numeros
+        var numOne = window.prompt("Digite o primeiro número?")
+        var numTwo = window.prompt("Digite o segundo número?")
+        var op = prompt('Digite o símbolo da operação que deseja realizar +, -, * ou /  :  ')
+
+     
+		/* Utilizando a função nativa 'alert' para exibir uma caixa de
+		diálogo na tela cujo conteúdo será a equação da operação' */
+		alert(` ${numOne} ${op} ${numTwo} = `); 
+      
+		divisao(numOne, numTwo)
+      
+		//Manipulando a Árvore DOM a fim de exibir, dentro da DIV declarada no HTML, o resultado da multiplicação juntamente com o seu texto inicial
+		var divLocal = document.getElementById('exibe_resultado');
+		/*
+		Neste ponto a variavel divLocal é um objeto que representa a div declarada no HTML.
+		Sendo um objeto é possível acessar seus atributos, como innerHTML, precedido do nome do objeto seguido de um '.'
+		*/
+		divLocal.innerHTML += divisao(numOne, numTwo);
+      
+		//Definição da função 'divisão' que recebe dois parâmetros - numero1 e numero2
+		function operacao(numero1, numero2){
+     
+			/*
+			Declarando uma nova variável que guardará o resultado da operação de divisão;
+			Iniciando a variável com o valor de 0.
+			*/
+			var resultado = 0; 
+            
+            
+			//Atribuindo à variável 'resultado' o valor resutante da divisão dos 2 parâmetros recebidos   
+			resultado = numero1 / numero2;
+      
+			//Retornando (devolvendo) o valor da variável resultado
+			return resultado;
+     
+		}
+        
+	</script>
+</html>
